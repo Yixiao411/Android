@@ -22,6 +22,8 @@ fun CalculIMC(modifier: Modifier){
             },
             label = {
                 Text("Nom de usuari")
+
+
             }
         )
     }
