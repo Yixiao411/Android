@@ -38,7 +38,10 @@ class MainActivity : ComponentActivity() {
                     //Ex3(modifier = Modifier.padding(innerPadding))
                     //CalculadoraPropina(modifier = Modifier.padding(innerPadding))
                     //CalculIMC(modifier = Modifier.padding(innerPadding))
-                    NumeroSecret(modifier = Modifier.padding(innerPadding))
+                    //NumeroSecret(modifier = Modifier.padding(innerPadding))
+                    //Calculadora(modifier = Modifier.padding(innerPadding))
+                    //ConversorUnitats(modifier = Modifier.padding(innerPadding))
+                    Lemonade(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
