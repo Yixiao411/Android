@@ -41,7 +41,8 @@ class MainActivity : ComponentActivity() {
                     //NumeroSecret(modifier = Modifier.padding(innerPadding))
                     //Calculadora(modifier = Modifier.padding(innerPadding))
                     //ConversorUnitats(modifier = Modifier.padding(innerPadding))
-                    Lemonade(modifier = Modifier.padding(innerPadding))
+                    //Lemonade(modifier = Modifier.padding(innerPadding))
+                    DiceRoller(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
