@@ -14,7 +14,7 @@ import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -23,19 +23,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun DiceRoller(modifier: Modifier = Modifier.fillMaxSize()){
-    var diceNumber1 by remember { mutableStateOf(0) }
-    var diceNumber2 by remember { mutableStateOf(0) }
+fun DiceRoller(modifier: Modifier){
+    var diceNumber1 by remember { mutableIntStateOf(0) }
+    var diceNumber2 by remember { mutableIntStateOf(0) }
 
-    var diceFace = listOf(
+    val diceFace = listOf(
         R.drawable.dice_1,
         R.drawable.dice_2,
         R.drawable.dice_3,
@@ -44,7 +40,7 @@ fun DiceRoller(modifier: Modifier = Modifier.fillMaxSize()){
         R.drawable.dice_6
     )
 
-    var context = LocalContext.current
+    val context = LocalContext.current
 
     Image(
         painterResource(R.drawable.tapestry),
@@ -78,18 +74,20 @@ fun DiceRoller(modifier: Modifier = Modifier.fillMaxSize()){
 
         }
 
-        Row(){
+        Row(
+            modifier = Modifier.fillMaxWidth()
+        ){
             Image(
                 painter = painterResource(diceFace[diceNumber1]),
                 contentDescription = null,
-                modifier = Modifier.clickable(){
+                modifier = Modifier.clickable{
                     diceNumber1 = (0..5).random()
                 }
             )
             Image(
                 painter = painterResource(diceFace[diceNumber2]),
                 contentDescription = null,
-                modifier = Modifier.clickable(){
+                modifier = Modifier.clickable{
                     diceNumber2 = (0..5).random()
                 }
             )
