@@ -57,6 +57,7 @@ fun DiceRoller(modifier: Modifier){
         verticalArrangement = Arrangement.Center,
     ) {
         Image(
+
             painter = painterResource(R.drawable.title),
             contentDescription = null,
             modifier = Modifier.fillMaxHeight(0.5f),
