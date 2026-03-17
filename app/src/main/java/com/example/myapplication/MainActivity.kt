@@ -42,13 +42,18 @@ class MainActivity : ComponentActivity() {
                     //Calculadora(modifier = Modifier.padding(innerPadding))
                     //ConversorUnitats(modifier = Modifier.padding(innerPadding))
                     //Lemonade(modifier = Modifier.padding(innerPadding))
-                    DiceRoller(modifier = Modifier.padding(innerPadding))
+                    //DiceRoller(modifier = Modifier.padding(innerPadding))
+                    //Ex6_Pantalla1()
+                    Ex6_Pantalla2()
                 }
             }
         }
     }
 }
 
+
+
+//Muestras---------------------------------------
 @Composable
 fun MyConstraintLayout(modifier: Modifier = Modifier){
     ConstraintLayout(modifier.fillMaxSize()) {

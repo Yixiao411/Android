@@ -6,11 +6,13 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -23,9 +25,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
 @Composable
 fun DiceRoller(modifier: Modifier){
     var diceNumber1 by remember { mutableIntStateOf(0) }
@@ -57,12 +59,13 @@ fun DiceRoller(modifier: Modifier){
         Image(
             painter = painterResource(R.drawable.title),
             contentDescription = null,
-            modifier = Modifier.width(320.dp),
+            modifier = Modifier.fillMaxHeight(0.5f),
             contentScale = ContentScale.Crop
         )
 
         Button(
-            colors = ButtonColors(Color.Red,Color.White,Color.Red, Color.Black),
+            //colors = ButtonColors(Color.Red, Color.White, Color.Red, Color.Black),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Red, contentColor = Color.White),
             modifier = Modifier.fillMaxWidth(0.8f),
             onClick = {
                 diceNumber1 = (0..5).random()
