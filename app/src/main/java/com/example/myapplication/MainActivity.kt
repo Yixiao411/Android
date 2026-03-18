@@ -1,9 +1,12 @@
 package com.example.myapplication
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -19,9 +22,25 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
+import com.example.myapplication.navigation.NavigationWrapper
 import com.example.myapplication.ui.theme.MyApplicationTheme
+import kotlin.getValue
 
 class MainActivity : ComponentActivity() {
+
+    private val viewModel: MainViewModel by viewModels()
+
+    @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            NavigationWrapper()
+        }
+
+    }
+
+    /*
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -44,33 +63,47 @@ class MainActivity : ComponentActivity() {
                     //Lemonade(modifier = Modifier.padding(innerPadding))
                     //DiceRoller(modifier = Modifier.padding(innerPadding))
                     //Ex6_Pantalla1()
-                    Ex6_Pantalla2()
+                    //Ex6_Pantalla2()
+                    //Ex6_Pantalla3()
                 }
             }
         }
     }
+    */
 }
-
 
 
 //Muestras---------------------------------------
 @Composable
-fun MyConstraintLayout(modifier: Modifier = Modifier){
+fun MyConstraintLayout(modifier: Modifier = Modifier) {
     ConstraintLayout(modifier.fillMaxSize()) {
         val (boxRed, boxYellow, boxGreen, boxCyan, boxMagenta) = createRefs()
-        Box(modifier = Modifier.size(120.dp).background(Color.Red).constrainAs(boxRed){
-            bottom.linkTo(parent.bottom)
-            end.linkTo(parent.end)
-        })
-        Box(modifier = Modifier.size(120.dp).background(Color.Yellow))
-        Box(modifier = Modifier.size(120.dp).background(Color.Green))
-        Box(modifier = Modifier.size(120.dp).background(Color.Cyan))
-        Box(modifier = Modifier.size(120.dp).background(Color.Magenta).constrainAs(boxMagenta){
-            bottom.linkTo(boxRed.top)
-            end.linkTo(boxRed.start)
-        })
+        Box(modifier = Modifier
+            .size(120.dp)
+            .background(Color.Red)
+            .constrainAs(boxRed) {
+                bottom.linkTo(parent.bottom)
+                end.linkTo(parent.end)
+            })
+        Box(modifier = Modifier
+            .size(120.dp)
+            .background(Color.Yellow))
+        Box(modifier = Modifier
+            .size(120.dp)
+            .background(Color.Green))
+        Box(modifier = Modifier
+            .size(120.dp)
+            .background(Color.Cyan))
+        Box(modifier = Modifier
+            .size(120.dp)
+            .background(Color.Magenta)
+            .constrainAs(boxMagenta) {
+                bottom.linkTo(boxRed.top)
+                end.linkTo(boxRed.start)
+            })
         Image(
-            painter = painterResource(id = R.drawable.pika), contentDescription = "Example")
+            painter = painterResource(id = R.drawable.pika), contentDescription = "Example"
+        )
     }
 }
 
